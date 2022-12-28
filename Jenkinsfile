@@ -4,7 +4,6 @@ node{
     }
     stage('test') {
         def myTestContainer = docker.image('python')
-        myTestContainer.pull()
         myTestContainer.inside {
             sh 'pipenv install'
             sh 'pipenv run python -m pytest'

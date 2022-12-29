@@ -3,9 +3,8 @@ node{
         checkout scm
     }
     stage('test') {
-        def myTestContainer = docker.image('python:3.12.0a3-bullseye')
+        def myTestContainer = docker.image('fsfe/pipenv')
         myTestContainer.inside {
-            sh 'pip install pipenv'
             sh 'pipenv install'
             sh 'pipenv run python -m pytest'
         }
